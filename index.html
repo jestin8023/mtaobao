@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <!--动态设置像素比-->
+    <script>
+        var iScale = 1;
+        iScale = iScale / window.devicePixelRatio;
+        document.write('<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=' + iScale + ',minimum-scale=' + iScale + ',maximum-scale=' + iScale + '">')
+    </script>
+    <!--动态设置文字大小-->
+    <script>
+        function resize(){
+            var iWidth = document.documentElement.clientWidth;
+            iWidth = iWidth > 1242 ? 1242 : iWidth;
+            document.getElementsByTagName('html')[0].style.fontSize = iWidth / 16 + 'px';
+        }
+        resize();
+        window.onresize=function(){
+            resize();
+        }
+    </script>
+    <!--
+        宽高或者字体的大小 / (设计师给的设计稿尺寸宽度 /16) = x rem
+        640/16=40
+    -->
+</head>
+<body>
+<header class="head_box">
+        <div class="search_box">
+            <span class="search_key">等你一起破风潜行211</span>
+        </div>
+</header>
+<section class="content">
+
+    <section class="p_r">
+        <div id="slider" class="swipe">
+            <div class="swipe-wrap">
+                <div class="wrap">
+                    <div><img src="images/banner.jpg"></div>
+                </div>
+                <div class="wrap">
+                    <div><img src="images/banner1.jpg"></div>
+                </div>
+                <div class="wrap">
+                    <div><img src="images/banner2.jpg"></div>
+                </div>
+            </div>
+        </div>
+        <nav class="nav clearfix">
+            <ul id="position">
+                <li class="on"></li>
+                <li class=""></li>
+                <li class=""></li>
+            </ul>
+        </nav>
+    </section>
+
+    <div class="nav_box">
+        <ul class="nav_type clearfix">
+            <li><img src="images/tm.png" alt=""/><span>天猫</span></li>
+            <li><img src="images/tm.png" alt=""/><span>天猫</span></li>
+            <li><img src="images/tm.png" alt=""/><span>天猫</span></li>
+            <li><img src="images/tm.png" alt=""/><span>天猫</span></li>
+            <li><img src="images/tm.png" alt=""/><span>天猫天猫</span></li>
+            <li><img src="images/tm.png" alt=""/><span>天猫</span></li>
+            <li><img src="images/tm.png" alt=""/><span>天猫</span></li>
+            <li><img src="images/tm.png" alt=""/><span>天猫</span></li>
+        </ul>
+        <div class="tb_top">
+            <span class="top_ico fl"></span>
+            <div class="top_info zoom">
+                <span class="ico_info">热门</span>
+                最受女生喜爱的热门零食
+            </div>
+        </div>
+    </div>
+    <ul class="rush_buy clearfix">
+        <li class="qianggou"></li>
+        <li class="youhaohuo"></li>
+        <li class="aiguangjie"></li>
+        <li class="meirishoufa"></li>
+    </ul>
+    <div class="chaoshihui clearfix">
+        <h3 class="csh_title"></h3>
+        <div class="juhuasuan fl"></div>
+        <div class="pinpaituan fl"></div>
+        <div class="pinpaituan fl"></div>
+        <div class="pinpaituan fl"></div>
+        <div class="tttejia fl"></div>
+        <div class="zhoumotb fl"></div>
+        <div class="zhoumotb fl"></div>
+        <div class="zhoumotb fl"></div>
+    </div>
+</section>
+<footer class="foot_box">
+    <ul class="menu clearfix">
+        <li><span></span>首页</li><li><span></span>首页</li><li><span></span>首页</li><li><span></span>首页</li><li><span></span>首页</li>
+    </ul>
+</footer>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="js/swipe.js"></script>
+<script>
+    var slider =
+            Swipe(document.getElementById('slider'), {
+                auto: 2000,
+                continuous: true,
+                callback: function(pos) {
+                    var i = bullets.length;
+                    while (i--) {
+                        bullets[i].className = ' ';
+                    }
+                    bullets[pos].className = 'on';
+                }
+            });
+    var bullets = document.getElementById('position').getElementsByTagName('li');
+</script>
+</body>
+</html>
